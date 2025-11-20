@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // Mudamos para SQLite para você rodar local sem configurar PostgreSQL agora
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+}
+
+model Metric {
+  id        String   @id @default(cuid())
+  label     String
+  value     Float
+  createdAt DateTime @default(now())
+}
