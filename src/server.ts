@@ -1,17 +1,7 @@
-import express from 'express';
+// Deprecated sample server
+// This file is kept only for historical/reference purposes.
+// The application entrypoint is `src/index.ts` which imports `src/app.ts`.
 
-const app = express();
-const port = 3000;
-
-// Middleware para ler JSON
-app.use(express.json());
-
-// Rota de Teste
-app.get('/', (req, res) => {
-  res.json({ status: "API Online", message: "Backend rodando!" });
-});
-
-// Iniciar
-app.listen(port, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${port}`);
-});
+// If you need to run a minimal test server, import `app` from `src/app.ts`:
+// const app = require('./app').default;
+// app.listen(3000);

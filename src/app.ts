@@ -41,6 +41,11 @@ app.use(cors());
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/auth', authRoutes);
 
+// Debug: expose raw generated OpenAPI spec (useful when swagger-jsdoc reports YAML errors)
+app.get('/api/docs.json', (req, res) => {
+  res.json(specs);
+});
+
 // Health Check
 app.get('/', (req, res) => {
   res.status(200).json({ 
